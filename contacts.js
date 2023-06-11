@@ -41,6 +41,7 @@ function removeContact(contactId) {
   fs.readFile(contactsPath)
     .then((data) => {
       const parsed = JSON.parse(data);
+      console.log(parsed.find((contact) => contact.id === contactId));
       return parsed.filter((contact) => contact.id !== contactId);
     })
     .then((result) => fs.writeFile(contactsPath, JSON.stringify(result)))
@@ -55,6 +56,7 @@ function removeContact(contactId) {
 // 6. If error, shows error message in console
 function addContact(name, email, phone) {
   const contact = [{ id: nanoid(), name, email, phone }];
+  console.log(contact);
   fs.readFile(contactsPath)
     .then((data) => {
       const parsed = JSON.parse(data);
