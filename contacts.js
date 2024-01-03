@@ -1,10 +1,11 @@
-const fs = require("fs").promises;
+const fs = require("fs/promises");
 const path = require("path");
 //Extra module for ID generation
 const { nanoid } = require("nanoid");
 
 //Absolute path to contacts.json
-const contactsPath = path.resolve("./db/contacts.json");
+// const contactsPath = path.resolve("./db/contacts.json");
+const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 // 1. Reads file contacts.json
 // 2. Passes to console string containing contacts.json
